@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_02_173431) do
+ActiveRecord::Schema.define(version: 2018_08_02_182723) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "feed_items", force: :cascade do |t|
+    t.string "username"
+    t.string "item_description"
+    t.string "image_url"
+    t.string "video_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.string "item_type"
+    t.index ["user_id"], name: "index_feed_items_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
@@ -22,4 +34,5 @@ ActiveRecord::Schema.define(version: 2018_08_02_173431) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "feed_items", "users"
 end
