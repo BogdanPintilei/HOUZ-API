@@ -21,7 +21,6 @@ class Api::V1::FeedItemsController < Api::V1::BaseController
   # GET /feed_items/1/edit
   def edit
   end
-  # ba pulaa
 
   # POST /feed_items
   # POST /feed_items.json
