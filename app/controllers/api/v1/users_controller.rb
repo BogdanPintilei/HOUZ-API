@@ -12,12 +12,10 @@ class Api::V1::UsersController < Api::V1::BaseController
     @user = User.new
   end
 
-  def show
-  end
+  def show; end
 
   # GET /users/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /users
   # POST /users.json

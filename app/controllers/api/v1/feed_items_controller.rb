@@ -29,9 +29,9 @@ class Api::V1::FeedItemsController < Api::V1::BaseController
 
     respond_to do |format|
       if @feed_item.save
-        format.json { render :show, status: :created, location: @feed_item }
+        format.json {render :show, status: :created, location: @feed_item}
       else
-        format.json { render json: @feed_item.errors, status: :unprocessable_entity }
+        format.json {render json: @feed_item.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -41,9 +41,9 @@ class Api::V1::FeedItemsController < Api::V1::BaseController
   def update
     respond_to do |format|
       if @feed_item.update(feed_item_params)
-        format.json { render :show, status: :ok, location: @feed_item }
+        format.json {render :show, status: :ok, location: @feed_item}
       else
-        format.json { render json: @feed_item.errors, status: :unprocessable_entity }
+        format.json {render json: @feed_item.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -53,18 +53,19 @@ class Api::V1::FeedItemsController < Api::V1::BaseController
   def destroy
     @feed_item.destroy
     respond_to do |format|
-      format.json { head :no_content }
+      format.json {head :no_content}
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_feed_item
-      @user = User.find(params[:user_id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def feed_item_params
-      params.require(:feed_item).permit(:item_type, :username, :user_id, :item_description, :image_url, :video_url)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_feed_item
+    @user = User.find(params[:user_id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def feed_item_params
+    params.require(:feed_item).permit(:item_type, :username, :user_id, :item_description, :image_url, :video_url)
+  end
 end
