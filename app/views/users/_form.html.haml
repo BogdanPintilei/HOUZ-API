@@ -1,0 +1,9 @@
+= form_for(@user, :html => {:multipart => true}) do |form|
+  .field
+    = form.label :username
+    = form.text_field :username
+  .field
+    = form.label :image_url
+    = form.file_field :image_url
+  .actions
+    = form.submit
