@@ -67,6 +67,7 @@ gem 'jquery-rails'
 # upload content
 gem 'carrierwave', '~> 1.0'
 gem 'mini_magick', '4.7.0'
-gem 'fog'
 gem 'fog-aws'
+gem 'fog'
+gem 'haml-rails', '~> 1.0'
 gem 'devise'

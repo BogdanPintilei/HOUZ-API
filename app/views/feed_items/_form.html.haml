@@ -1,0 +1,29 @@
+= form_with(model: feed_item, local: true) do |form|
+  - if feed_item.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(feed_item.errors.count, "error")
+        prohibited this feed_item from being saved:
+      %ul
+        - feed_item.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = form.label :item_type
+    = form.text_field :item_type
+  .field
+    = form.label :username
+    = form.text_field :username
+  .field
+    = form.label :user_id
+    = form.text_field :user_id
+  .field
+    = form.label :item_description
+    = form.text_field :item_description
+  .field
+    = form.label :image_url
+    = form.text_field :image_url
+  .field
+    = form.label :video_url
+    = form.text_field :video_url
+  .actions
+    = form.submit
