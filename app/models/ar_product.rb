@@ -1,0 +1,2 @@
+class ArProduct < ApplicationRecord
+end

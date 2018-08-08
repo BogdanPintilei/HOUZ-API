@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Product name:
+  = @ar_product.product_name
+%p
+  %b Product description:
+  = @ar_product.product_description
+%p
+  %b Product url:
+  = @ar_product.product_url
+%p
+  %b Product serialized url:
+  = @ar_product.product_serialized_url
+
+= link_to 'Edit', edit_ar_product_path(@ar_product)
+\|
+= link_to 'Back', ar_products_path
