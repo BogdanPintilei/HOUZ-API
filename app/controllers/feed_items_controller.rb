@@ -9,16 +9,14 @@ class FeedItemsController < ApplicationController
 
   # GET /feed_items/1
   # GET /feed_items/1.json
-  def show
-  end
+  def show; end
+
+  # GET /feed_items/1/edit
+  def edit; end
 
   # GET /feed_items/new
   def new
     @feed_item = FeedItem.new
-  end
-
-  # GET /feed_items/1/edit
-  def edit
   end
 
   # POST /feed_items

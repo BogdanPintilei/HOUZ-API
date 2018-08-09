@@ -62,13 +62,12 @@ class ArSubcategoriesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_ar_subcategory
-      @ar_subcategory = ArSubcategory.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def ar_subcategory_params
-      params.require(:ar_subcategory).permit(:ar_subcategory_name, :image_url)
-    end
+  def set_ar_subcategory
+    @ar_subcategory = ArSubcategory.find(params[:id])
+  end
+
+  def ar_subcategory_params
+    params.require(:ar_subcategory).permit(:ar_subcategory_name, :image_url, :ar_categories_id)
+  end
 end

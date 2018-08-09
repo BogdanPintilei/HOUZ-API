@@ -62,13 +62,12 @@ class ArProductsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_ar_product
-      @ar_product = ArProduct.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def ar_product_params
-      params.require(:ar_product).permit(:product_name, :product_description, :product_url, :product_serialized_url)
-    end
+  def set_ar_product
+    @ar_product = ArProduct.find(params[:id])
+  end
+
+  def ar_product_params
+    params.require(:ar_product).permit(:product_name, :product_description, :product_url, :product_serialized_url, :ar_subcategories_id)
+  end
 end
