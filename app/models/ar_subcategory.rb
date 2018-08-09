@@ -1,0 +1,2 @@
+class ArSubcategory < ApplicationRecord
+end

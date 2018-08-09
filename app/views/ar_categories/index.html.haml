@@ -1,0 +1,23 @@
+%h1 Listing ar_categories
+
+%table
+  %thead
+    %tr
+      %th Ar category name
+      %th Image url
+      %th
+      %th
+      %th
+
+  %tbody
+    - @ar_categories.each do |ar_category|
+      %tr
+        %td= ar_category.ar_category_name
+        %td= ar_category.image_url
+        %td= link_to 'Show', ar_category
+        %td= link_to 'Edit', edit_ar_category_path(ar_category)
+        %td= link_to 'Destroy', ar_category, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Ar category', new_ar_category_path
