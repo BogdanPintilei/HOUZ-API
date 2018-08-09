@@ -1,0 +1,35 @@
+%p#notice= notice
+.container
+  %h1 Feed Items
+  = link_to 'New Feed Item', new_feed_item_path
+  .row.mt-5
+    - @feed_items.each do |feed_item|
+      .col-lg-2.col-md-2.col-sm-12.col-xs-12.text-center
+        Item Type
+        %br
+        = feed_item.item_type
+      .col-lg-1.col-md-1.col-sm-12.col-xs-12.text-center
+        Username
+        %br
+        = feed_item.username
+      .col-lg-1.col-md-1.col-sm-12.col-xs-12.text-center
+        User
+        %br
+        = feed_item.user_id
+      .col-lg-2.col-md-2.col-sm-12.col-xs-12.text-center
+        Item description
+        %br
+        = feed_item.item_description
+      .col-lg-3.col-md-3.col-sm-12.col-xs-12.text-center
+        Image url
+        %br
+        = feed_item.image_url
+      .col-lg-3.col-md-3.col-sm-12.col-xs-12.text-center
+        Video url
+        %br
+        = feed_item.video_url
+
+        %br
+        = link_to 'Show', feed_item
+        = link_to 'Edit', edit_feed_item_path(feed_item)
+        = link_to 'Destroy', feed_item, method: :delete, data: { confirm: 'Are you sure?' }

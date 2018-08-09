@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :feed_items
   resources :users
 
