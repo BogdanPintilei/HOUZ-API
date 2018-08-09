@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_09_145205) do
+ActiveRecord::Schema.define(version: 2018_08_09_155135) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 2018_08_09_145205) do
     t.string "product_serialized_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "ar_subcategories_id"
+    t.index ["ar_subcategories_id"], name: "index_ar_products_on_ar_subcategories_id"
   end
 
   create_table "ar_subcategories", force: :cascade do |t|
@@ -36,6 +38,8 @@ ActiveRecord::Schema.define(version: 2018_08_09_145205) do
     t.string "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "ar_categories_id"
+    t.index ["ar_categories_id"], name: "index_ar_subcategories_on_ar_categories_id"
   end
 
   create_table "feed_items", force: :cascade do |t|
@@ -69,5 +73,7 @@ ActiveRecord::Schema.define(version: 2018_08_09_145205) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "ar_products", "ar_subcategories", column: "ar_subcategories_id"
+  add_foreign_key "ar_subcategories", "ar_categories", column: "ar_categories_id"
   add_foreign_key "feed_items", "users"
 end
