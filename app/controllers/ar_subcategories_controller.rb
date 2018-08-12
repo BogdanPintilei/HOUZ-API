@@ -9,8 +9,7 @@ class ArSubcategoriesController < ApplicationController
 
   # GET /ar_subcategories/1
   # GET /ar_subcategories/1.json
-  def show
-  end
+  def show; end
 
   # GET /ar_subcategories/new
   def new
@@ -18,8 +17,7 @@ class ArSubcategoriesController < ApplicationController
   end
 
   # GET /ar_subcategories/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /ar_subcategories
   # POST /ar_subcategories.json
@@ -68,6 +66,6 @@ class ArSubcategoriesController < ApplicationController
   end
 
   def ar_subcategory_params
-    params.require(:ar_subcategory).permit(:ar_subcategory_name, :image_url, :ar_categories_id)
+    params.require(:ar_subcategory).permit(:name, :image_url, :ar_category_id)
   end
 end

@@ -17,7 +17,7 @@ class ArProductsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create ar_product" do
     assert_difference('ArProduct.count') do
-      post ar_products_url, params: { ar_product: { product_description: @ar_product.product_description, product_name: @ar_product.product_name, product_serialized_url: @ar_product.product_serialized_url, product_url: @ar_product.product_url } }
+      post ar_products_url, params: { ar_product: { image_url: @ar_product.image_url, product_description: @ar_product.product_description, product_name: @ar_product.product_name } }
     end
 
     assert_redirected_to ar_product_url(ArProduct.last)
@@ -34,7 +34,7 @@ class ArProductsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update ar_product" do
-    patch ar_product_url(@ar_product), params: { ar_product: { product_description: @ar_product.product_description, product_name: @ar_product.product_name, product_serialized_url: @ar_product.product_serialized_url, product_url: @ar_product.product_url } }
+    patch ar_product_url(@ar_product), params: { ar_product: { image_url: @ar_product.image_url, product_description: @ar_product.product_description, product_name: @ar_product.product_name } }
     assert_redirected_to ar_product_url(@ar_product)
   end
 

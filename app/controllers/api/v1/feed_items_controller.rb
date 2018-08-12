@@ -8,19 +8,17 @@ class Api::V1::FeedItemsController < Api::V1::BaseController
     render json: @feed_items
   end
 
-  # GET /feed_items/1
-  # GET /feed_items/1.json
-  def show
-  end
-
   # GET /feed_items/new
   def new
     @feed_item = FeedItem.new
   end
 
   # GET /feed_items/1/edit
-  def edit
-  end
+  def edit; end
+
+  # GET /feed_items/1
+  # GET /feed_items/1.json
+  def show; end
 
   # POST /feed_items
   # POST /feed_items.json

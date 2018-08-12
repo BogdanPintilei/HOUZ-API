@@ -3,11 +3,9 @@
 one:
   product_name: MyString
   product_description: MyString
-  product_url: MyString
-  product_serialized_url: MyString
+  image_url: MyString
 
 two:
   product_name: MyString
   product_description: MyString
-  product_url: MyString
-  product_serialized_url: MyString
+  image_url: MyString

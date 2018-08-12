@@ -69,6 +69,6 @@ class ArCategoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ar_category_params
-      params.require(:ar_category).permit(:ar_category_name, :image_url)
+      params.require(:ar_category).permit(:name, :image_url)
     end
 end

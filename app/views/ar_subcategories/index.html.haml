@@ -3,8 +3,9 @@
 %table
   %thead
     %tr
-      %th Ar subcategory name
+      %th Name
       %th Image url
+      %th Category
       %th
       %th
       %th
@@ -12,8 +13,9 @@
   %tbody
     - @ar_subcategories.each do |ar_subcategory|
       %tr
-        %td= ar_subcategory.ar_subcategory_name
+        %td= ar_subcategory.name
         %td= ar_subcategory.image_url
+        %td= ar_subcategory.ar_category_id
         %td= link_to 'Show', ar_subcategory
         %td= link_to 'Edit', edit_ar_subcategory_path(ar_subcategory)
         %td= link_to 'Destroy', ar_subcategory, method: :delete, data: { confirm: 'Are you sure?' }

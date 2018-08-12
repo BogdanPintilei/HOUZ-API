@@ -1,11 +1,16 @@
 class Api::V1::ArSubcategoriesController < Api::V1::BaseController
-  before_action :set_ar_subcategory, only: [:show, :edit, :update, :destroy]
+  before_action :set_ar_subcategory
 
   # GET /ar_subcategories
   # GET /ar_subcategories.json
   def index
-    @ar_subcategories = ArSubcategory.all
+    @ar_subcategories = @ar_category.ar_subcategories
     render json: @ar_subcategories
+  end
+
+  # GET /ar_subcategories/new
+  def new
+    @ar_subcategory = ArSubcategory.new
   end
 
   # GET /ar_subcategories/1
@@ -15,11 +20,6 @@ class Api::V1::ArSubcategoriesController < Api::V1::BaseController
   # GET /ar_subcategories/1/edit
   def edit; end
 
-  # GET /ar_subcategories/new
-  def new
-    @ar_subcategory = ArSubcategory.new
-  end
-
   # POST /ar_subcategories
   # POST /ar_subcategories.json
   def create
@@ -27,9 +27,9 @@ class Api::V1::ArSubcategoriesController < Api::V1::BaseController
 
     respond_to do |format|
       if @ar_subcategory.save
-        format.json {render :show, status: :created, location: @ar_subcategory}
+        format.json { render :show, status: :created, location: @ar_subcategory }
       else
-        format.json {render json: @ar_subcategory.errors, status: :unprocessable_entity}
+        format.json { render json: @ar_subcategory.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -39,9 +39,9 @@ class Api::V1::ArSubcategoriesController < Api::V1::BaseController
   def update
     respond_to do |format|
       if @ar_subcategory.update(ar_subcategory_params)
-        format.json {render :show, status: :ok, location: @ar_subcategory}
+        format.json { render :show, status: :ok, location: @ar_subcategory }
       else
-        format.json {render json: @ar_subcategory.errors, status: :unprocessable_entity}
+        format.json { render json: @ar_subcategory.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -51,19 +51,17 @@ class Api::V1::ArSubcategoriesController < Api::V1::BaseController
   def destroy
     @ar_subcategory.destroy
     respond_to do |format|
-      format.json {head :no_content}
+      format.json { head :no_content }
     end
   end
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_ar_subcategory
-    @ar_subcategory = ArSubcategory.find(params[:id])
+    @ar_category = ArCategory.find(params[:ar_category_id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def ar_subcategory_params
-    params.require(:ar_subcategory).permit(:ar_subcategory_name, :image_url)
+    params.require(:ar_subcategory).permit(:name, :image_url, :ar_category_id)
   end
 end

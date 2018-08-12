@@ -14,8 +14,9 @@ class ArSubcategoriesTest < ApplicationSystemTestCase
     visit ar_subcategories_url
     click_on "New Ar Subcategory"
 
-    fill_in "Ar Subcategory Name", with: @ar_subcategory.ar_subcategory_name
+    fill_in "Category", with: @ar_subcategory.category_id
     fill_in "Image Url", with: @ar_subcategory.image_url
+    fill_in "Name", with: @ar_subcategory.name
     click_on "Create Ar subcategory"
 
     assert_text "Ar subcategory was successfully created"
@@ -26,8 +27,9 @@ class ArSubcategoriesTest < ApplicationSystemTestCase
     visit ar_subcategories_url
     click_on "Edit", match: :first
 
-    fill_in "Ar Subcategory Name", with: @ar_subcategory.ar_subcategory_name
+    fill_in "Category", with: @ar_subcategory.category_id
     fill_in "Image Url", with: @ar_subcategory.image_url
+    fill_in "Name", with: @ar_subcategory.name
     click_on "Update Ar subcategory"
 
     assert_text "Ar subcategory was successfully updated"

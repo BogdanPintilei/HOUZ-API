@@ -3,7 +3,7 @@
 %table
   %thead
     %tr
-      %th Ar category name
+      %th Name
       %th Image url
       %th
       %th
@@ -12,7 +12,7 @@
   %tbody
     - @ar_categories.each do |ar_category|
       %tr
-        %td= ar_category.ar_category_name
+        %td= ar_category.name
         %td= ar_category.image_url
         %td= link_to 'Show', ar_category
         %td= link_to 'Edit', edit_ar_category_path(ar_category)

@@ -14,10 +14,9 @@ class ArProductsTest < ApplicationSystemTestCase
     visit ar_products_url
     click_on "New Ar Product"
 
+    fill_in "Image Url", with: @ar_product.image_url
     fill_in "Product Description", with: @ar_product.product_description
     fill_in "Product Name", with: @ar_product.product_name
-    fill_in "Product Serialized Url", with: @ar_product.product_serialized_url
-    fill_in "Product Url", with: @ar_product.product_url
     click_on "Create Ar product"
 
     assert_text "Ar product was successfully created"
@@ -28,10 +27,9 @@ class ArProductsTest < ApplicationSystemTestCase
     visit ar_products_url
     click_on "Edit", match: :first
 
+    fill_in "Image Url", with: @ar_product.image_url
     fill_in "Product Description", with: @ar_product.product_description
     fill_in "Product Name", with: @ar_product.product_name
-    fill_in "Product Serialized Url", with: @ar_product.product_serialized_url
-    fill_in "Product Url", with: @ar_product.product_url
     click_on "Update Ar product"
 
     assert_text "Ar product was successfully updated"

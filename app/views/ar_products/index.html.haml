@@ -5,8 +5,7 @@
     %tr
       %th Product name
       %th Product description
-      %th Product url
-      %th Product serialized url
+      %th Image url
       %th
       %th
       %th
@@ -16,8 +15,7 @@
       %tr
         %td= ar_product.product_name
         %td= ar_product.product_description
-        %td= ar_product.product_url
-        %td= ar_product.product_serialized_url
+        %td= ar_product.image_url
         %td= link_to 'Show', ar_product
         %td= link_to 'Edit', edit_ar_product_path(ar_product)
         %td= link_to 'Destroy', ar_product, method: :delete, data: { confirm: 'Are you sure?' }

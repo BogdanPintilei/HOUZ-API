@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  ar_subcategory_name: MyString
+  name: MyString
   image_url: MyString
+  category_id: MyString
 
 two:
-  ar_subcategory_name: MyString
+  name: MyString
   image_url: MyString
+  category_id: MyString
