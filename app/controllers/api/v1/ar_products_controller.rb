@@ -59,11 +59,11 @@ class Api::V1::ArProductsController < Api::V1::BaseController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_ar_product
-    @ar_subcategory = ArSubcategory.find(params[:ar_subcategories_id])
+    @ar_subcategory = ArSubcategory.find(params[:ar_subcategory_id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def ar_product_params
-    params.require(:ar_product).permit(:product_name, :product_description, :image_url, :ar_subcategories_id)
+    params.require(:ar_product).permit(:product_name, :product_description, :image_url, :ar_subcategory_id)
   end
 end

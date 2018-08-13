@@ -28,14 +28,13 @@ ActiveRecord::Schema.define(version: 2018_08_12_181631) do
     t.string "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "ar_subcategories_id"
-    t.index ["ar_subcategories_id"], name: "index_ar_products_on_ar_subcategories_id"
+    t.bigint "ar_subcategory_id"
+    t.index ["ar_subcategory_id"], name: "index_ar_products_on_ar_subcategory_id"
   end
 
   create_table "ar_subcategories", force: :cascade do |t|
     t.string "name"
     t.string "image_url"
-    t.string "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "ar_category_id"
@@ -73,7 +72,7 @@ ActiveRecord::Schema.define(version: 2018_08_12_181631) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "ar_products", "ar_subcategories", column: "ar_subcategories_id"
+  add_foreign_key "ar_products", "ar_subcategories"
   add_foreign_key "ar_subcategories", "ar_categories"
   add_foreign_key "feed_items", "users"
 end

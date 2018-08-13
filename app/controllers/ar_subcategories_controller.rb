@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class ArSubcategoriesController < ApplicationController
-  before_action :set_ar_subcategory, only: [:show, :edit, :update, :destroy]
+  before_action :set_ar_subcategory, only: %i[show edit update destroy]
 
   # GET /ar_subcategories
   # GET /ar_subcategories.json
@@ -11,13 +13,13 @@ class ArSubcategoriesController < ApplicationController
   # GET /ar_subcategories/1.json
   def show; end
 
+  # GET /ar_subcategories/1/edit
+  def edit; end
+
   # GET /ar_subcategories/new
   def new
     @ar_subcategory = ArSubcategory.new
   end
-
-  # GET /ar_subcategories/1/edit
-  def edit; end
 
   # POST /ar_subcategories
   # POST /ar_subcategories.json

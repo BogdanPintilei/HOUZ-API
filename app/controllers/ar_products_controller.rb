@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class ArProductsController < ApplicationController
-  before_action :set_ar_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_ar_product, only: %i[show edit update destroy]
 
   # GET /ar_products
   # GET /ar_products.json
@@ -7,19 +9,17 @@ class ArProductsController < ApplicationController
     @ar_products = ArProduct.all
   end
 
-  # GET /ar_products/1
-  # GET /ar_products/1.json
-  def show
-  end
-
   # GET /ar_products/new
   def new
     @ar_product = ArProduct.new
   end
 
+  # GET /ar_products/1
+  # GET /ar_products/1.json
+  def show; end
+
   # GET /ar_products/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /ar_products
   # POST /ar_products.json
@@ -62,11 +62,12 @@ class ArProductsController < ApplicationController
   end
 
   private
+
   def set_ar_product
     @ar_product = ArProduct.find(params[:id])
   end
 
   def ar_product_params
-    params.require(:ar_product).permit(:product_name, :product_description, :image_url, :ar_subcategories_id)
+    params.require(:ar_product).permit(:product_name, :product_description, :image_url, :ar_subcategory_id)
   end
 end
