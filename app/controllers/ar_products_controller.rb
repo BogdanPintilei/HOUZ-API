@@ -29,10 +29,8 @@ class ArProductsController < ApplicationController
     respond_to do |format|
       if @ar_product.save
         format.html { redirect_to @ar_product, notice: 'Ar product was successfully created.' }
-        format.json { render :show, status: :created, location: @ar_product }
       else
         format.html { render :new }
-        format.json { render json: @ar_product.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -43,10 +41,8 @@ class ArProductsController < ApplicationController
     respond_to do |format|
       if @ar_product.update(ar_product_params)
         format.html { redirect_to @ar_product, notice: 'Ar product was successfully updated.' }
-        format.json { render :show, status: :ok, location: @ar_product }
       else
         format.html { render :edit }
-        format.json { render json: @ar_product.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -57,7 +53,6 @@ class ArProductsController < ApplicationController
     @ar_product.destroy
     respond_to do |format|
       format.html { redirect_to ar_products_url, notice: 'Ar product was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

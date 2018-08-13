@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class ArCategoriesController < ApplicationController
-  before_action :set_ar_category, only: [:show, :edit, :update, :destroy]
+  before_action :set_ar_category, only: %i[show edit update destroy]
 
   # GET /ar_categories
   # GET /ar_categories.json
@@ -9,8 +11,7 @@ class ArCategoriesController < ApplicationController
 
   # GET /ar_categories/1
   # GET /ar_categories/1.json
-  def show
-  end
+  def show; end
 
   # GET /ar_categories/new
   def new
@@ -18,8 +19,7 @@ class ArCategoriesController < ApplicationController
   end
 
   # GET /ar_categories/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /ar_categories
   # POST /ar_categories.json
@@ -29,10 +29,8 @@ class ArCategoriesController < ApplicationController
     respond_to do |format|
       if @ar_category.save
         format.html { redirect_to @ar_category, notice: 'Ar category was successfully created.' }
-        format.json { render :show, status: :created, location: @ar_category }
       else
         format.html { render :new }
-        format.json { render json: @ar_category.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -43,10 +41,8 @@ class ArCategoriesController < ApplicationController
     respond_to do |format|
       if @ar_category.update(ar_category_params)
         format.html { redirect_to @ar_category, notice: 'Ar category was successfully updated.' }
-        format.json { render :show, status: :ok, location: @ar_category }
       else
         format.html { render :edit }
-        format.json { render json: @ar_category.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -57,18 +53,18 @@ class ArCategoriesController < ApplicationController
     @ar_category.destroy
     respond_to do |format|
       format.html { redirect_to ar_categories_url, notice: 'Ar category was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_ar_category
-      @ar_category = ArCategory.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def ar_category_params
-      params.require(:ar_category).permit(:name, :image_url)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_ar_category
+    @ar_category = ArCategory.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def ar_category_params
+    params.require(:ar_category).permit(:name, :image_url)
+  end
 end

@@ -29,10 +29,8 @@ class ArSubcategoriesController < ApplicationController
     respond_to do |format|
       if @ar_subcategory.save
         format.html { redirect_to @ar_subcategory, notice: 'Ar subcategory was successfully created.' }
-        format.json { render :show, status: :created, location: @ar_subcategory }
       else
         format.html { render :new }
-        format.json { render json: @ar_subcategory.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -43,10 +41,8 @@ class ArSubcategoriesController < ApplicationController
     respond_to do |format|
       if @ar_subcategory.update(ar_subcategory_params)
         format.html { redirect_to @ar_subcategory, notice: 'Ar subcategory was successfully updated.' }
-        format.json { render :show, status: :ok, location: @ar_subcategory }
       else
         format.html { render :edit }
-        format.json { render json: @ar_subcategory.errors, status: :unprocessable_entity }
       end
     end
   end
