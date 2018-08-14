@@ -10,10 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_06_182159) do
+ActiveRecord::Schema.define(version: 2018_08_12_181631) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "ar_categories", force: :cascade do |t|
+    t.string "name"
+    t.string "image_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ar_products", force: :cascade do |t|
+    t.string "product_name"
+    t.string "product_description"
+    t.string "image_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "ar_subcategory_id"
+    t.index ["ar_subcategory_id"], name: "index_ar_products_on_ar_subcategory_id"
+  end
+
+  create_table "ar_subcategories", force: :cascade do |t|
+    t.string "name"
+    t.string "image_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "ar_category_id"
+    t.index ["ar_category_id"], name: "index_ar_subcategories_on_ar_category_id"
+  end
 
   create_table "feed_items", force: :cascade do |t|
     t.string "username"
@@ -46,5 +72,7 @@ ActiveRecord::Schema.define(version: 2018_08_06_182159) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "ar_products", "ar_subcategories"
+  add_foreign_key "ar_subcategories", "ar_categories"
   add_foreign_key "feed_items", "users"
 end

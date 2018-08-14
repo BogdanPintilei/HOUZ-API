@@ -1,0 +1,26 @@
+%h1 Listing ar_products
+
+%table
+  %thead
+    %tr
+      %th Product name
+      %th Product description
+      %th Image url
+      %th Ar Subcategory
+      %th
+      %th
+
+  %tbody
+    - @ar_products.each do |ar_product|
+      %tr
+        %td= ar_product.product_name
+        %td= ar_product.product_description
+        %td= ar_product.image_url
+        %td= ar_product.ar_subcategory_id
+        %td= link_to 'Show', ar_product
+        %td= link_to 'Edit', edit_ar_product_path(ar_product)
+        %td= link_to 'Destroy', ar_product, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Ar product', new_ar_product_path

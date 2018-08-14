@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @ar_subcategory.name
+%p
+  %b Image url:
+  = @ar_subcategory.image_url
+%p
+  %b Category:
+  = @ar_subcategory.ar_category_id
+
+= link_to 'Edit', edit_ar_subcategory_path(@ar_subcategory)
+\|
+= link_to 'Back', ar_subcategories_path

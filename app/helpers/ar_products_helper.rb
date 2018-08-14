@@ -1,0 +1,2 @@
+module ArProductsHelper
+end

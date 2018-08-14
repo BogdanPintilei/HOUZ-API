@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class FeedItemsController < ApplicationController
-  before_action :set_feed_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_feed_item, only: %i[show edit update destroy]
 
   # GET /feed_items
   # GET /feed_items.json
@@ -9,16 +11,14 @@ class FeedItemsController < ApplicationController
 
   # GET /feed_items/1
   # GET /feed_items/1.json
-  def show
-  end
+  def show; end
+
+  # GET /feed_items/1/edit
+  def edit; end
 
   # GET /feed_items/new
   def new
     @feed_item = FeedItem.new
-  end
-
-  # GET /feed_items/1/edit
-  def edit
   end
 
   # POST /feed_items
@@ -28,11 +28,9 @@ class FeedItemsController < ApplicationController
 
     respond_to do |format|
       if @feed_item.save
-        format.html {redirect_to @feed_item, notice: 'Feed item was successfully created.'}
-        format.json {render :show, status: :created, location: @feed_item}
+        format.html { redirect_to @feed_item, notice: 'Feed item was successfully created.' }
       else
-        format.html {render :new}
-        format.json {render json: @feed_item.errors, status: :unprocessable_entity}
+        format.html { render :new }
       end
     end
   end
@@ -42,11 +40,9 @@ class FeedItemsController < ApplicationController
   def update
     respond_to do |format|
       if @feed_item.update(feed_item_params)
-        format.html {redirect_to @feed_item, notice: 'Feed item was successfully updated.'}
-        format.json {render :show, status: :ok, location: @feed_item}
+        format.html { redirect_to @feed_item, notice: 'Feed item was successfully updated.' }
       else
-        format.html {render :edit}
-        format.json {render json: @feed_item.errors, status: :unprocessable_entity}
+        format.html { render :edit }
       end
     end
   end
@@ -56,8 +52,7 @@ class FeedItemsController < ApplicationController
   def destroy
     @feed_item.destroy
     respond_to do |format|
-      format.html {redirect_to feed_items_url, notice: 'Feed item was successfully destroyed.'}
-      format.json {head :no_content}
+      format.html { redirect_to feed_items_url, notice: 'Feed item was successfully destroyed.' }
     end
   end
 
