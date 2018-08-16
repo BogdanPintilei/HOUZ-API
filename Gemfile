@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
-git_source(:github) {|repo| "https://github.com/#{repo}.git"}
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 
@@ -14,7 +16,7 @@ gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
 end
 
 group :development do
@@ -34,9 +36,11 @@ gem 'active_model_serializers', '~> 0.10.0'
 gem 'bootstrap', '~> 4.1.3'
 gem 'carrierwave', '~> 1.0'
 gem 'devise'
+# gem 'fog'
+gem 'bcrypt', '~> 3.1.7'
 gem 'fog-aws'
-gem 'fog'
 gem 'haml-rails', '~> 1.0'
 gem 'jquery-rails'
+gem 'jwt'
 gem 'mini_magick', '4.7.0'
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
