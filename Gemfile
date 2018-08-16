@@ -44,3 +44,4 @@ gem 'jquery-rails'
 gem 'jwt'
 gem 'mini_magick', '4.7.0'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'devise_token_auth'
