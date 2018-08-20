@@ -3,8 +3,6 @@
 class ArCategoriesController < ApplicationController
   before_action :set_ar_category, only: %i[show edit update destroy]
 
-  # GET /ar_categories
-  # GET /ar_categories.json
   def index
     @ar_categories = ArCategory.all
   end

@@ -1,8 +1,7 @@
 class Api::V1::ArCategoriesController < Api::V1::BaseController
   before_action :set_ar_category, only: [:show, :edit, :update, :destroy]
 
-  # GET /ar_categories
-  # GET /ar_categories.json
+  api :GET, 'api/v1/ar_categories'
   def index
     @ar_categories = ArCategory.all
     render json: @ar_categories

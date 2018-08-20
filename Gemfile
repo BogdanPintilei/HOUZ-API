@@ -30,12 +30,12 @@ group :test do
   gem 'selenium-webdriver'
 end
 
+gem 'apipie-rails'
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'bootstrap', '~> 4.1.3'
 gem 'carrierwave', '~> 1.0'
 gem 'devise'
-gem 'fog-aws'
-gem 'fog'
+gem 'aws-sdk'
 gem 'haml-rails', '~> 1.0'
 gem 'jquery-rails'
 gem 'mini_magick', '4.7.0'
